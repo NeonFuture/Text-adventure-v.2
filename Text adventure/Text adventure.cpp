@@ -6,45 +6,67 @@
 #include <iostream>
 using namespace std;
 
-int _tmain(int argc, _TCHAR* argv[])
+int main()
 {
-	int depression,
-		input; 
-	depression = 5;
+    int bravery, cowardice, strength,
+   	 input;
+    bravery = 1, cowardice = 5, strength = 3;
 
-	cout << "Press enter to advance, answer without spaces and start with capital letter, try not to fuck up :)" << endl;
-	cout << "                            SAVING PRIVATE WAIFU" << endl;
-	cout << "" << endl;
-	cout << "BZZZZZZT. BZZZZZZT. BZZZZZZT." << endl; getchar();
-	cout << "Your phone wakes you up. Another day of being beta trash ahead of you." << endl; getchar();
-	cout << "What do you do?" << endl; 
-	cout << "(1. Get up, 2. Go back to sleep or 3. Suicide)" << endl;
-	
-	cin >> input;
-	switch (input){
-	case 1:
-		cout << "You got up, feeling like shit. The way you always feel." << endl; getchar();
-		break;
-	case 2: 
-		cout << "You went back to sleep, feelsgoodman" << endl; getchar();
-		break;
-	case 3: 
-		cout << "You're too much of a pussy for that, you start crying instead" << endl; getchar();
-		break;
-	default: 
-		cout << "I don't understand unless you answer with a number" << endl; getchar();
-		break;
-	}
-	cout << "Suddenly, you remember how beta you are." << endl; getchar();
-	cout << "Never kissed a girl." << endl; getchar();
-	cout << "You get depressed over the fact that you're such a fucking pussy." << endl; getchar();
-	cout << "Depression increased by 1. Depression is " << depression << endl; getchar();
-	cout << "You also remember that you would kill yourself if it reached 10." << endl; getchar();
-	cout << "Let's make the best of out time then by....." << endl; getchar();
-	cout << "(1. Browse /r9k/, 2. Go to school or 3. Check phone)" << endl; getchar();
+    cout << "Press enter to advance, answer with the numbers given, try not to fuck up :)" << endl;
+    cout << "                        	SAVING PRIVATE MEDIEVAL WAIFU" << endl;
+    cout << "You are a lazy knight during the medieval living in a small village. Your archnemesis Lobsterboy has stolen the local princess and it's up to you to save her." << endl; getchar();
+    cout << "" << endl;
+    cout << "Cookuuuuh. Cookuuuuh. Cookuuuuuuuuh." << endl; getchar();
+    cout << "You hear some sort of commotion outside." << endl; getchar();
+    cout << "What do you do?" << endl;
+    cout << "(1. Get up and investigate, 2. Go back to sleep 3. Go to the barracks and get buff)" << endl;
+    cin >> input;
+    switch (input)
+   	 {
+   	 case 1:
+   		 cout << "You got up, not really feeling like saving the day." << endl; getchar();
+   		 cout << "(1. investigate through the window. 2. go out and see what's up.)" << endl;
+   			 cin >> input;
+   			 switch (input)
+   			 {
+   					 case 1:
+   						 cout << "You look through the window not really seeing anything but you an hear a woman screaming." << endl; getchar();
+   						 cout << "What do you do?" << endl;
+   						 cout << "(1. go back to bed. 2. Investigate further.)" << endl;
+   							 cin >> input;
+   							 switch (input)
+   							 {
+   								 case 1:
+   									 cout << "You quickly fall asleep and dream about your waifu, the fair princess of your town" << endl; getchar();
+   									 cout << endl << "You are wildly shaken and wake up instantly!" << endl; getchar();
+   									 cout << "Squire: Hello sir, it's me, your brother and squire, our local princess has been kidnapped!" << endl << "You must save her!" << endl; getchar();
+   									 cout << "(1. Quiet squire, I don't have to take orders from you! 2. Ooh no! Not my waifu! ugh, I mean, not our fair princess! get my lance squire and let us ride out!)" << endl; getchar();
+   										 cin >> input;
+   										 switch (input)
+   										 {
+   											 case 1:
+   												 cout << "Bu-u-u-ut sir this could be an oppurtunity to finally show the princess your gratitude. She might even give you a kiss, I mean, you have never even kissed a fair maiden." << endl; getchar();
+   										 }
+   							 }
 
-	system("pause");
+   			 }
+   		 break;
+   	 case 2:
+   		 cout << "You went back to sleep, feelsgoodman" << endl; getchar();
+   		 break;
+   	 case 3:
+   		 cout << "You're too beta to go through with it, you start crying instead" << endl; getchar();
+   		 break;
+   	 default:
+   		 cout << "I don't understand unless you answer with a number" << endl; getchar();
+   		 break;
+   	 }
 
-	return 0;
+    
+
+
+    system("pause");
+
+    return 0;
 }
 
