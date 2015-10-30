@@ -1,0 +1,7 @@
+To do:
+
+Skriva in story i .CPP filen.
+
+Fixa combat, typ häftigt RNG eller nåt. Lek runt med strength och cowardice.
+
+Fixa in musik.

@@ -11,6 +11,7 @@ int main()
     int bravery, cowardice, strength,
    	 input;
     bravery = 1, cowardice = 5, strength = 3;
+    int yolo = 3
 
     cout << "Press enter to advance, answer with the numbers given, try not to fuck up :)" << endl;
     cout << "                        	SAVING PRIVATE MEDIEVAL WAIFU" << endl;
