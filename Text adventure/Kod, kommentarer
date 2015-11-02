@@ -1,77 +1,77 @@
 // Text adventure.cpp : Defines the entry point for the console application.
 //
 
-#include "stdafx.h" //Förklara varför man behöver de här?
+#include "stdafx.h" //Forklara varfor man behover de har?
 #include <stdio.h>
 #include <iostream>
 using namespace std;
 
 int main()
 {
-	int // Olika integers som ger värden som kommer användas vid olika tillfällen.
-	    bravery, //Ju mer bravery du har, desto mer modigare val kan du ta i spelet. Du vinner genom mycket mod.
-	    cowardice, // När du har över 10 cowardice så förlorar du. Håll den så låg som möjligt.
-	    strength, // Combat relaterad stat. Har inte tänk ut så mycket med den än. Typ attack==str x 3? OP?
-		  input; // Behövs för att spelaren ska kunna skriva in siffror och gå vidare i spelet.
-	bravery = 1, cowardice = 5, strength = 3; // Borde testa hela spelet och se ifall statsen e obalanserade, sen ändra.
+	int // Olika integers som ger varden som kommer anvandas vid olika tillfallen.
+		bravery, //Ju mer bravery du har, desto mer modigare val kan du ta i spelet. Du vinner genom mycket mod.
+		cowardice, // Nar du har over 10 cowardice sa forlorar du. Hall den sa lag som mojligt.
+		strength, // Combat relaterad stat. Har inte tank ut sa mycket med den an. Typ attack==str x 3? OP?
+		input; // Behovs for att spelaren ska kunna skriva in siffror och ga vidare i spelet.
+	bravery = 1, cowardice = 5, strength = 3; // Borde testa hela spelet och se ifall statsen e obalanserade, sen andra.
 
 	cout << "Press enter to advance, answer with the numbers given, try not to fuck up :)" << endl; // Lite tips till spelaren ;P
-	cout << "" << endl; // Tom rad, bara för att det ska se snyggt ut
-	cout << "          SAVING PRIVATE MEDIEVAL WAIFU AND CHRONICLES OF BETA KNIGHT" << endl; //Titel på spelet
+	cout << "" << endl; // Tom rad, bara for att det ska se snyggt ut
+	cout << "          SAVING PRIVATE MEDIEVAL WAIFU AND CHRONICLES OF BETA KNIGHT" << endl; //Titel pa spelet
 	cout << "You are a lazy knight during the medieval living in a small village." << endl; //Introduktion
-	cout << "Your archnemesis Lobsterboy has stolen the local princess and it's up to you to save her." << endl; getchar(); // Mainplot revealed. getchar() betyder att linjen är klar när charen i paranteserna skrivs. Tomma paranteser blir Enter.
+	cout << "Your archnemesis Lobsterboy has stolen the local princess and it's up to you to save her." << endl; getchar(); // Mainplot revealed. getchar() betyder att linjen ar klar nar charen i paranteserna skrivs. Tomma paranteser blir Enter.
 	cout << "" << endl; // Tom rad
-	cout << "Cookuuuuh. Cookuuuuh. Cookuuuuuuuuh." << endl; getchar(); //Väcks av en tupp.
+	cout << "Cookuuuuh. Cookuuuuh. Cookuuuuuuuuh." << endl; getchar(); //Vacks av en tupp.
 	cout << "You hear some sort of commotion outside." << endl; getchar(); // Spelaren kastas direkt in i handlingen.
-	cout << "What do you do?" << endl; // Dags för första valet!
+	cout << "What do you do?" << endl; // Dags for forsta valet!
 
-	bool repeat(true); // Bool är en variabeltyp där det bara finns två alternativ, till skillnad från int där det kan finnas flera rätt och fel. Bool är på repeat, så ifall du gör ett val som inte är default så kommer den inte repeata. Då blir bool repeat avslagen. Annars går den tillbaka till valen man kan göra.
-	do{ // Allt ligger i en do/while loop, så att den checkar ifall bool repeat(true) fortfarande stämmer. Ifall det stämmer, gå man tillbaka til valen.
+	bool repeat(true); // Bool ar en variabeltyp dar det bara finns tva alternativ, till skillnad fran int dar det kan finnas flera ratt och fel. Bool ar pa repeat, sa ifall du gar ett val som inte ar default sa kommer den inte repeata. Da blir bool repeat avslagen. Annars gar den tillbaka till valen man kan gora.
+	do{ // Allt ligger i en do/while loop, sa att den checkar ifall bool repeat(true) fortfarande stammer. Ifall det stammer, ga man tillbaka til valen.
 		cout << "1. Get up and investigate" << endl; // Leder dig direkt till prinsessan och den storyn.
-		cout << "2. Go back to sleep" << endl; // Ska fixa att man kan möte the prince of darkness.
-		cout <<	"3. Go to the barracks and get buff" << endl; // Dött alternativ, kanske gör så att man får mer strength, kanske något händer i barrackerna???
-		cin >> input; // Tar vad spelaren skriver in, läser av och gör det till input värdet.
+		cout << "2. Go back to sleep" << endl; // Ska fixa att man kan mote the prince of darkness.
+		cout << "3. Go to the barracks and get buff" << endl; // Dott alternativ, kanske gor so att man far mer strength, kanske nagot hander i barrackerna???
+		cin >> input; // Tar vad spelaren skriver in, laser av och gor det till input vardet.
 
-		switch (input) // Läser av vad input har för värde och sen tar den och gör vad som står i caset som har samma siffra som du skrev.
+		switch (input) // Laser av vad input har for varde och sen tar den och gor vad som star i caset som har samma siffra som du skrev.
 		{
 		case 1: // Ifall man skrev 1
 			cout << "You got up, not really feeling like saving the day." << endl; getchar(); // Typical betamornings #Onlybetathings
-			
-			cout << "(1. investigate through the window. 2. go out and see what's up.)" << endl; // Dags för det andra valet. Borde ändra formatting så att valet liknar mer som det första.
+
+			cout << "(1. investigate through the window. 2. go out and see what's up.)" << endl; // Dags for det andra valet. Borde andra formatting sa att valet liknar mer som det forsta.
 			cin >> input; // Kollar vad spelaren skriver in.
-			repeat = false; // Repeats värde blir falskt, så caset kommer inte repeatas tills ett godkänt svar ges.
-			switch (input) // Kollar vad värdet på input är.
+			repeat = false; // Repeats varde blir falskt, sa caset kommer inte repeatas tills ett godkant svar ges.
+			switch (input) // Kollar vad vardet pa input ar.
 			{
 			case 1: // Ifall spelare tryckte 1.
-				cout << "You look through the window not really seeing anything but you hear a woman" << endl; // Ingen getchar() här, eftersom att det ser fucked up ut i cmd. 
-				cout << "screaming." << endl; getchar(); // Ny rad så att det ser snyggt ut i cmd.
+				cout << "You look through the window not really seeing anything but you hear a woman" << endl; // Ingen getchar() har, eftersom att det ser fucked up ut i cmd. 
+				cout << "screaming." << endl; getchar(); // Ny rad sa att det ser snyggt ut i cmd.
 				cout << "What do you do?" << endl; // Valdags!
-				
-				cout << "(1. go back to bed. 2. Investigate further.)" << endl; //1 ger mer cowardice, 2 ger mer bravery. Ändra Formatting
+
+				cout << "(1. go back to bed. 2. Investigate further.)" << endl; //1 ger mer cowardice, 2 ger mer bravery. Andra Formatting
 				cin >> input; // Kollar vad spelaren har valt.
-				repeat = false; // Rätt val, ingen repeat.
-				switch (input) // Kollar in input har för värde.
+				repeat = false; // Ratt val, ingen repeat.
+				switch (input) // Kollar in input har for varde.
 				{
 				case 1: // Ifall man skrev 1
-					cout << "You quickly fall asleep and dream about your waifu, the fair princess of your" << endl; // Kallar en tjej du har en crush på för waifu #Onlybetathings 
-					cout << "town." << endl; getchar(); // Kan nog ta bort "your" och lägga in "town" så slipper vi den här raden.
+					cout << "You quickly fall asleep and dream about your waifu, the fair princess of your" << endl; // Kallar en tjej du har en crush pa for waifu #Onlybetathings 
+					cout << "town." << endl; getchar(); // Kan nog ta bort "your" och lagga in "town" sa slipper vi den har raden.
 					cout << "You are wildly shaken and wake up instantly!" << endl; getchar(); // Introducing new character!
 					cout << "Squire: Hello sir, it's me, your brother and squire." << endl; getchar(); // A wild squire appears!
 					cout << "Come quick! Our local princess has been kidnapped!" << endl; getchar(); // Ohshit.jpg
 					cout << "You must save her!" << endl; getchar(); // Time To be a hero!
-					
-					cout << "(1. Quiet squire, I don't have to take orders from you! 2. Ooh no! Not my waifu! ugh, I mean, not our fair princess! get my lance squire and let us ride out!)" << endl; // Prob gör den här till 2 rader, way to long.
+
+					cout << "(1. Quiet squire, I don't have to take orders from you! 2. Ooh no! Not my waifu! ugh, I mean, not our fair princess! get my lance squire and let us ride out!)" << endl; // Prob gor den har till 2 rader, way to long.
 					cin >> input; // Kollar vad spelaren har valt.
-					repeat = false; // Rätt val, ingen repeat.
-					switch (input) // Kollar vad input har för värde.
+					repeat = false; // Ratt val, ingen repeat.
+					switch (input) // Kollar vad input har for varde.
 					{
 					case 1: // Ifall man skrev 1
 						cout << "Squire: Bu-u-u-ut sir this could be an oppurtunity to finally show the princess your" << endl; // Plot thickens...
 						cout << "gratitude. She might even give you a kiss, I mean, you have never even kissed a fair maiden." << endl; getchar(); // Sen tar det slut, gotta work here.
 					}
 				case 2:  // Ifall man skrev 2
-					repeat = false; // Rätt val, ingen repeat.
-					break; // För att ett case ska stängas/avslutas så måste man skriva break; i slutet. Det här är braken för valet man gjorde ifall man utforskade vidare.
+					repeat = false; // Ratt val, ingen repeat.
+					break; // For att ett case ska stangas/avslutas sa maste man skriva break; i slutet. Det har ar braken far valet man gjorde ifall man utforskade vidare.
 				}
 			case 2: // Ifall man skrev 2
 				cout << "You see the fair princess outside, but a gang of ruffians is attacking her!" << endl; getchar(); // Time to be a hero!
@@ -80,43 +80,41 @@ int main()
 				cout << "Savage 2: Not like that's gonna happen!" << endl; getchar(); // Just you wait...
 				cout << "Savages: HAHAHAHAHA!" << endl; getchar(); // Savage af
 				cout << "Savage 3: Hey, Who's that?" << endl; getchar(); // Ohshit.png
-				cout << "You feel everyones eyes on you. Even the princess looks directly at you" << endl; getchar(); // Det här valet kommer höja bravery eller cowardice rejält.
+				cout << "You feel everyones eyes on you. Even the princess looks directly at you" << endl; getchar(); // Det har valet kommer hoja bravery eller cowardice rejalt.
 
-				cout << "1. Go out and save her" << endl; // Bravery ökar rejält.
-				cout << "2. Hide and cover in fear." << endl; // Cowardice ökar rejält.
+				cout << "1. Go out and save her" << endl; // Bravery okar rejalt.
+				cout << "2. Hide and cover in fear." << endl; // Cowardice okar rejalt.
 				cin >> input; // Kollar vad spelaren skrev.
-				repeat = false; // Rätt val, ingen repeat.
-				switch (input) // Kollar vad input har för värde.
+				repeat = false; // Ratt val, ingen repeat.
+				switch (input) // Kollar vad input har for varde.
 				{
 				case 1: // Ifall man skrev 1
-					repeat = false; // Rätt val, ingen repeat
-					break; // Breakar caset där man går ut och räddar eller inte.
+					repeat = false; // Ratt val, ingen repeat
+					break; // Breakar caset dar man gar ut och raddar eller inte.
 				}
-								
 
-				
+
+
 			}
-			break; // Breakar ifall man valde 1 i första caset man gör i spelet.
+			break; // Breakar ifall man valde 1 i forsta caset man gor i spelet.
 		case 2: // Ifall man tryckte 2
-			cout << "You quickly fall asleep and dream about your waifu, the fair princess of" << endl; // Väldigt tomt här, borde jobba vidare på storyn här nere
-			cout << "the town." << endl; getchar(); // Så att det ser snyggare ut i cmd.
-			repeat = false; // Rätt val, ingen repeat
-			break; // Breakar case 2 vid det första valet.
+			cout << "You quickly fall asleep and dream about your waifu, the fair princess of" << endl; // Valdigt tomt har, borde jobba vidare pa storyn har nere
+			cout << "the town." << endl; getchar(); // Sa att det ser snyggare ut i cmd.
+			repeat = false; // Ratt val, ingen repeat
+			break; // Breakar case 2 vid det forsta valet.
 		case 3: // Ifall man tryckte 3
-			cout << "You're too beta to go through with it, you start crying instead" << endl; getchar(); // Bara ett tillfälligt svar, borde lägga till något mer här.
+			cout << "You're too beta to go through with it, you start crying instead" << endl; getchar(); // Bara ett tillfalligt svar, borde lagga till nagot mer har.
 			repeat = false;
-			break; // Breakar case 3 vid det första valet.
-		default: // Ifall man tycker något annat än 1, 2 eller 3. Kan även vara 2 tecken, då blir det fortfarande default.
-			cout << "I don't understand unless you answer with a number" << endl; getchar(); // Default meddelandet ifall man inte skriver 1,2 eller 3 när man ska.
-			cout << "" << endl; // Tom rad, så att de ska se snyggt ut.
+			break; // Breakar case 3 vid det forsta valet.
+		default: // Ifall man tycker nagot annat an 1, 2 eller 3. Kan aven vara 2 tecken, da blir det fortfarande default.
+			cout << "I don't understand unless you answer with a number" << endl; getchar(); // Default meddelandet ifall man inte skriver 1,2 eller 3 nar man ska.
+			cout << "" << endl; // Tom rad, sa att de ska se snyggt ut.
 
-			break; // Breakar första caset man gör i spelet. Man kommer behöver välja om eftersom att repeat fortfarande är true.
-		} 
+			break; // Breakar forsta caset man gor i spelet. Man kommer behover valja om eftersom att repeat fortfarande ar true.
+		}
 
-	} while (repeat); // Allt körs i en do/while loop, som gör att bool repeat=true funkar. Kanske (troligtvis) så måste alla cases läggas i do/while loppar så att repeat kommer att funka.
+	} while (repeat); // Allt kors i en do/while loop, som gor att bool repeat=true funkar. Kanske (troligtvis) sa maste alla cases laggas i do/while loppar sa att repeat kommer att funka.
 
-	system("pause"); // Så att spelet pausas och jag ser att det inte är pågrund av getchar(); End of line lixom
+	system("pause"); // Sa att spelet pausas och jag ser att det inte ar pagrund av getchar(); End of line lixom
 
-	return 0; // Har nånting att göra med att man skriver int main i början, hajar inte riktigt :/
-	
-}
+	return 0; // Har nanting att gara med att man skriver int main i barjan, hajar inte riktigt :/
