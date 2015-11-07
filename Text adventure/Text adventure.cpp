@@ -71,7 +71,7 @@ int main()
 					case 1:
 						cout << "Squire: Bu-u-u-ut sir this could be an oppurtunity to finally show the princess your" << endl;
 						cout << "gratitude. She might even give you a kiss, I mean, you have never even kissed a fair maiden." << endl; getchar();
-					}
+					
 				case 2: 
 					repeat = false;
 					break;
