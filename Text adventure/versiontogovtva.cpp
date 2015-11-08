@@ -1,9 +1,11 @@
 
-
+//So that Adam can edit while Leo is doing actual work on the actual file.
 #include <stdio.h>
 #include <iostream>
 #include <ctime>
 #include <cstdlib>
+
+
 using namespace std;
 
 int main()
@@ -17,6 +19,7 @@ int main()
 		savageHp,
 		playerHp,
 		die;
+		
 
 	    bravery = 1, 
 		cowardice = 5, 
