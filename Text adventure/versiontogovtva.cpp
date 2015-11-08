@@ -20,7 +20,7 @@ int main()
 		die;
 
 
-	    bravery = 1,
+	    bravery = 2,
 		cowardice = 5,
 		strength = 3; // Borde testa hela spelet och se ifall statsen e obalanserade, sen andra.
 	    savageStrength = 6,
@@ -164,6 +164,7 @@ Start:
 									{
 										case 1:
 										cout << "You follow the ruffies, lol" << endl; getchar();
+										goto Boss;
 										system("cls");
 										
 										case 2:
@@ -229,7 +230,169 @@ Start:
 			cout << "" << endl; // Tom rad, sa att de ska se snyggt ut.
 			break; // Breakar forsta caset man gor i spelet. Man kommer behover valja om eftersom att repeat fortfarande ar true.
 			} while (repeat);
+Boss:
+	cout << "You pursue the ruffies and the grill into the forest, out in the fields, and up the mountains to get to Lobsterboy Alpha's castle." << endl; getchar();
+	cout << "You see the ruffies and the grill enter the castle, unfortunately closing the big gates after them." << endl; getchar();
+	cout << "As you aproach the gates, you notice an old lady walking in a rapid pace towards you." << endl; getchar();
+	cout << "'Sir Beta Knight! It's dangerous to go alone, take this!' - The old lady shouts as she throws a giant sword towards you, head first." << endl; getchar(); 
+	cout << "You catch the sword gracefully and slash the locks on the gates with it, looking truly badass." << endl; getchar();
+	cout << "Well inside, a few guards notice you and start making ape noises while flexing their muscles." << endl; getchar();
+	cout << "'OUH OUH, WE GOT OURSELFS SUM BETA FLESH BOIIIIIIIIS!!!!1' - One of the foul guards roars." << endl; getchar();
+	cout << "Prepare for battle!" << endl; getchar() ;
+	cout << "These are your stats: " << endl << "Bravery: " << bravery << "	" << "Strength: " << strength << "	" << "Cowardice: " << cowardice << "	" << "Your HP: " << playerHp << endl << endl; getchar();
+	int apeHp,apeDamage,apeStrength;
+	apeHp = 15,
+	apeDamage = 4,
+	apeStrength = 10;
+	cout << "These are your enemies stats: " << endl << "Enemy Damage: " << apeDamage << "	" << "Enemy Strength: " << apeStrength << "	"<< "Enemy HP: " << apeHp << endl << endl; getchar();
+	
+	while (apeHp > 0){
+		
+		cout << "1. Fast attack - Higher chance of hitting with your sword, but less damage." << endl; getchar();
+		cout << "2. Heavy attack - Lower chance of hitting with your sword, but higher damage." << endl; getchar();
+		cout << "3. Pussy out and return home." << endl;
+		
+		cin >> (input);
+		switch(input)
+		{
+			case 1:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die +1 >= apeStrength/strength)
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout <<"... And hit your foes with a fast blow!" << endl; getchar();
+				cout << "You deal: " << strength -1 << " points of damage!" << endl; getchar();
+				apeHp -= strength -1;
+				cout << "Your foe now has: " << apeHp << " hp!" << endl; getchar();
+				system("cls");
+			}
+			
+			else
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout << "... And due to your fast speed, you trip on a bucket of intestines. The alpha guards strike you with great power!" << endl; getchar();
+				playerHp -= apeStrength - bravery;
+				cout << "You lost: " << apeStrength - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			case 2:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die -1 >= apeStrength/strength)
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "... And you strike your enemies with  a mighty swing!" << endl; getchar();
+				apeHp -= strength + 1;
+				cout << "Your foe now has: " << apeHp << " hp!" << endl; getchar();
+				system("cls");
+				
+			}
+			else 
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "And you hit your toe on a table foot that stuck out, and you feel hurt. Also the alpha guards hit you." << endl; getchar();
+				playerHp -= apeStrength + 1 - bravery;
+				cout << "You lost: " << apeStrength - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			case 3:
+			cout << "You pussy out and go home. " << endl; getchar();
+			system("cls");
+			goto Start;
+		}
+	}
+	goto actualBoss;
+	
+actualBoss:
+	cout << "You now go to meet Lobsterboy and save the princess. " << endl; getchar();
+	cout << "'This princess will be mine, forever! And ther is nothing you can do to stop me, MUAHAHAHAH!' - Lobsterboy shrieks. " << endl; getchar();
+	cout << "'Not on my watch... 8-) " << endl; getchar();
+	int lobsterHp, lobsterDamage, lobsterStrength;
+	lobsterHp = 40, lobsterDamage = 3, lobsterStrength = 5;
+	cout << "These are your stats: " << endl << "Bravery: " << bravery << "	" << "Strength: " << strength << "	" << "Cowardice: " << cowardice << "	" << "Your HP: " << playerHp << endl << endl; getchar();
+	cout << "These are your enemies stats: " << endl << "Enemy Damage: " << apeDamage << "	" << "Enemy Strength: " << apeStrength << "	"<< "Enemy HP: " << apeHp << endl << endl; getchar();
+	
+	while (lobsterHp > 0){
+		
+		cout << "1. Fast attack - Higher chance of hitting with your sword, but less damage." << endl; getchar();
+		cout << "2. Heavy attack - Lower chance of hitting with your sword, but higher damage." << endl; getchar();
+		cout << "3. Pussy out and return home." << endl;
+		
+		cin >> (input);
+		switch(input)
+		{
+			case 1:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die +1 >= lobsterStrength/strength)
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout <<"... And hit your rival with a fast blow!" << endl; getchar();
+				cout << "You deal: " << strength -1 << " points of damage!" << endl; getchar();
+				apeHp -= strength -1;
+				cout << "Your foe now has: " << lobsterHp << " hp!" << endl; getchar();
+				system("cls");
+			}
+			
+			else
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout << "... And due to your fast speed, you trip on a bucket of intestines. Lobsterboy strike you with great power!" << endl; getchar();
+				playerHp -= lobsterStrength - bravery;
+				cout << "You lost: " << lobsterDamage - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			case 2:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die -1 >= lobsterStrength/strength)
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "... And you strike your nemesis with  a mighty swing!" << endl; getchar();
+				apeHp -= strength + 1;
+				cout << "Your foe now has: " << lobsterHp << " hp!" << endl; getchar();
+				system("cls");
+				
+			}
+			else 
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "And you hit your toe on a table foot that stuck out, and you feel hurt. Also lobsterboy hits you." << endl; getchar();
+				playerHp -= lobsterStrength + 1 - bravery;
+				cout << "You lost: " << lobsterDamage - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			case 3:
+			cout << "You pussy out and go home. " << endl; getchar();
+			system("cls");
+			goto Start;
+	
+}
+}
 
+	
+	
 	} while (repeat); // Allt kors i en do/while loop, som gor att bool repeat=true funkar. Kanske (troligtvis) sa maste alla cases laggas i do/while loppar sa att repeat kommer att funka.
 
 
