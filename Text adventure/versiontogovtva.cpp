@@ -131,8 +131,8 @@ Start:
 							if (die <= savageStrength / strength)
 							{
 								cout << "You charge forward against your enemy, without even thinking about getting your armor. (Smart move, champ)" << endl; getchar();
-								cout << "Unfortunately, you fail miserably and trip and fall into a pool of mud, noob. (Also meaning that the ruffies get to attack you now. " << endl; getchar();
-								cout << "The ruffians hit you hard with a kick to the balls. Your brother screams as you lose consciousness. You loose " << savageStrength / bravery << " hp" << endl; getchar();
+								cout << "Unfortunately, you fail miserably and trip and fall into a pool of mud, noob. (Also meaning that the savage get to attack you now. " << endl; getchar();
+								cout << "The savage hit you hard with a kick to the balls. Your brother screams as you lose consciousness. You loose " << savageStrength / bravery << " hp" << endl; getchar();
 							}
 							else if (die >= savageStrength / strength)
 							{
@@ -147,16 +147,26 @@ Start:
 									cowardice -= 1;
 									cout << "'Now, your stats will rise!!'" << endl; getchar();
 									cout << "These are your current stats: " << endl << "Bravery: " << bravery << "	" << "Strength: " << strength << "	" << "Cowardice: " << cowardice << "	" << "Your HP: " << playerHp << endl << endl; getchar();
-									cout << "The ruffians see that you're more manly then you look." << endl; getchar();
+									cout << "The savages see that you're more manly then you look." << endl; getchar();
 									cout << "They start to back off, scared of you." << endl; getchar();
-									cout << "Ruffian 1: C'mon guys, this dude is nuts. Let's leave and take the princess with us!" << endl; getchar();
+									cout << "Savage 1: C'mon guys, this dude is nuts. Let's leave and take the princess with us!" << endl; getchar();
 									cout << "Princess: Help me! They're taking me to lobsterboy alphas castle! Come save me!" << endl; getchar();
-									cout << "Brother/Squire: Lobsterboy alpha? That dude is fucking wicked mate! I heard he takes villagers and make them fight each other, just for fun. Then he kills the survivor and makes the other villagers clean up after him. He's a proper physcho. Should we really follow?" << endl;
+									cout << "Brother/Squire: Lobsterboy alpha? That dude is fucking wicked mate! I heard he takes villagers and make them fight each other, just for fun. Then he kills the survivor and makes the other villagers clean up after him. He's a proper physcho. Should we really follow?" << endl; getchar();
+									
 
+									cin >> input;
+									switch (input)
+									{
+									case 1:
+
+									case 2:
+									}
 								}
 							}
 						}
 					}
+					system("cls");
+					goto Start;
 					break; // Breakar caset dar man gar ut och raddar eller inte.
 				} while (repeat);
 			default:
@@ -181,8 +191,17 @@ Start:
 			goto Start;
 			break; // Breakar case 2 vid det forsta valet.
 		case 3: // Ifall man tryckte 3
-			cout << "You're too beta to go through with it, you start crying instead" << endl; getchar(); // Bara ett tillfalligt svar, borde lagga till nagot mer har.
-			repeat = false;
+			if (strength < 5)
+				cout << "You're so buff already, maybe you should go and help others instead of getting stronger?" << endl; getchar();
+			else (cout << "You go to the barracks and lift waight and practice swordfighting with a dummy."<< endl; getchar(); // Bara ett tillfalligt svar, borde lagga till nagot mer har.
+			strength += 1;
+			cout << "You feel stronger already! (Strength +1. Your strength is: " << strength << ")" << endl; getchar();
+			cout << "You get tired after your workout and go home." << endl; getchar();
+			cout << "You're so tired that you fall asleep almost instantly, not having time to take " << endl;
+			cout << "a bath after working out." << endl; getchar();
+			cout << "Nasty." << endl; getchar();
+			system("cls");
+			goto Start;
 			break; // Breakar case 3 vid det forsta valet.
 		default: // Ifall man tycker nagot annat an 1, 2 eller 3. Kan aven vara 2 tecken, da blir det fortfarande default.
 			cout << "I don't understand unless you answer with a number" << endl; getchar(); // Default meddelandet ifall man inte skriver 1,2 eller 3 nar man ska.
