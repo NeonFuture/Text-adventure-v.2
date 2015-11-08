@@ -16,14 +16,18 @@ int main()
 		savageStrength,
 		savageHp,
 		playerHp,
+		savageDamage,
 		die;
 
 	    bravery = 1, 
 		cowardice = 5, 
-		strength = 3; // Borde testa hela spelet och se ifall statsen e obalanserade, sen andra.
+		strength = 3, // Borde testa hela spelet och se ifall statsen e obalanserade, sen andra.
 		savageStrength = 6,
+		savageDamage = 2,
 		savageHp = 4,
 		playerHp = 10;
+		
+		bool savedWaifu = false; //The exit value. If you have saved the waifu, then this loop will exit, and the game will stop.
 
 
 	cout << "Press enter to advance, answer with the numbers given, try not to fuck up :)" << endl; // Lite tips till spelaren ;P
@@ -32,6 +36,8 @@ int main()
 	cout << "You are a lazy knight during the medieval living in a small village." << endl; //Introduktion
 	cout << "Your archnemesis Lobsterboy has stolen the local princess and it's up to you to save her." << endl; getchar(); // Mainplot revealed. getchar() betyder att linjen ar klar nar charen i paranteserna skrivs. Tomma paranteser blir Enter.
 	cout << "" << endl; // Tom rad
+	
+	while(savedWaifu != true) {
 	cout << "Cookuuuuh. Cookuuuuh. Cookuuuuuuuuh." << endl; getchar(); //Vacks av en tupp.
 	cout << "You hear some sort of commotion outside." << endl; getchar(); // Spelaren kastas direkt in i handlingen.
 	cout << "What do you do?" << endl; // Dags for forsta valet!
@@ -127,6 +133,14 @@ int main()
 							cout << "You charge forward against your enemy, without even thinking about getting your armor. (Smart move, champ)" << endl; getchar();
 							cout << "Unfortunately, you fail miserably and trip and fall into a pool of mud, noob. (Also meaning that the ruffies get to attack you now. " << endl; getchar();
 							cout << "The ruffies fling their old, dirty, nasty paws against you. Your brother screams of furry attacks. You loose " << savageStrength / bravery << " hp" << endl; getchar();
+							playerHp = playerHp - savageStrength / bravery;
+							if (playerHp < 0)
+							{
+								cout << "Your HP has dropped dangerously low, and therefore you have been transported away to rest and recover." << endl; getchar();
+								playerHp = 10;
+								break;
+								getchar();
+							}
 						}
 						else if (die >= savageStrength / strength)
 						{
@@ -141,8 +155,9 @@ int main()
 								cowardice -=1;
 								cout << "'Now, your stats will rise!!'" << endl; getchar();
 								cout << "These are your current stats: " << endl << "Bravery: " << bravery << "	" << "Strength: " << strength << "	" << "Cowardice: " << cowardice << "	" << "Your HP: " << playerHp << endl << endl; getchar();
-								break;
+								getchar();
 							}
+							
 						}
 					}
 					}
@@ -173,7 +188,7 @@ int main()
 
 	} while (repeat); // Allt kors i en do/while loop, som gor att bool repeat=true funkar. Kanske (troligtvis) sa maste alla cases laggas i do/while loppar sa att repeat kommer att funka.
 
-	
+}
 
 	return 0; // Har nanting att gara med att man skriver int main i barjan, hajar inte riktigt :/
 }

@@ -144,7 +144,7 @@ int main()
 								cowardice -=1;
 								cout << "'Now, your stats will rise!!'" << endl; getchar();
 								cout << "These are your current stats: " << endl << "Bravery: " << bravery << "	" << "Strength: " << strength << "	" << "Cowardice: " << cowardice << "	" << "Your HP: " << playerHp << endl << endl; getchar();
-								break;
+								
 							}
 						}
 					}
