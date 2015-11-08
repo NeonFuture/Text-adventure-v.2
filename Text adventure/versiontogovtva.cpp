@@ -1,5 +1,4 @@
 //So that Adam can edit while Leo is doing actual work on the actual file.
-#include "stdafx.h"
 #include <stdio.h>
 #include <iostream>
 #include <ctime>
@@ -43,6 +42,7 @@ Start:
 
 	bool repeat(true); // Bool ar en variabeltyp dar det bara finns tva alternativ, till skillnad fran int dar det kan finnas flera ratt och fel. Bool ar pa repeat, sa ifall du gar ett val som inte ar default sa kommer den inte repeata. Da blir bool repeat avslagen. Annars gar den tillbaka till valen man kan gora.
 	do{ // Allt ligger i en do/while loop, sa att den checkar ifall bool repeat(true) fortfarande stammer. Ifall det stammer, ga man tillbaka til valen.
+	 playerHp = 10;
 		cout << "1. Get up and investigate" << endl; // Leder dig direkt till prinsessan och den storyn.
 		cout << "2. Go back to sleep" << endl; // Ska fixa att man kan mote the prince of darkness.
 		cout << "3. Go to the barracks and get buff" << endl; // Dott alternativ, kanske gor so att man far mer strength, kanske nagot hander i barrackerna???
@@ -132,7 +132,12 @@ Start:
 							{
 								cout << "You charge forward against your enemy, without even thinking about getting your armor. (Smart move, champ)" << endl; getchar();
 								cout << "Unfortunately, you fail miserably and trip and fall into a pool of mud, noob. (Also meaning that the savage get to attack you now. " << endl; getchar();
-								cout << "The savage hit you hard with a kick to the balls. Your brother screams as you lose consciousness. You loose " << savageStrength / bravery << " hp" << endl; getchar();
+								cout << "The savage hit you hard with a kick to the balls. Your brother screams as you lose consciousness. You loose " << savageStrength/bravery << " hp" << endl; getchar();
+								playerHp = playerHp-savageStrength/bravery;
+								if (playerHp < 0) {
+									cout << "Your health has dropped dangerously low! Your brother carries you away to recover before the ruffies makes an example of you." << endl; getchar();
+									goto Start;
+								}
 							}
 							else if (die >= savageStrength / strength)
 							{
@@ -152,18 +157,31 @@ Start:
 									cout << "Savage 1: C'mon guys, this dude is nuts. Let's leave and take the princess with us!" << endl; getchar();
 									cout << "Princess: Help me! They're taking me to lobsterboy alphas castle! Come save me!" << endl; getchar();
 									cout << "Brother/Squire: Lobsterboy alpha? That dude is fucking wicked mate! I heard he takes villagers and make them fight each other, just for fun. Then he kills the survivor and makes the other villagers clean up after him. He's a proper physcho. Should we really follow?" << endl; getchar();
-									
-
+									cout << "1. Follow the ruffies in to lobsterboy's castle. WARNING - This fight will be difficult if your strength and bravery are not over 6 and 4. " << endl;
+									cout << "2. Go home and train your strength and practice your swordfightin for the time when you need to beat lobsterboy, if he hasn't already raped/murdered the beautiful princess." << endl;
 									cin >> input;
 									switch (input)
 									{
-									case 1:
-
-									case 2:
+										case 1:
+										cout << "You follow the ruffies, lol" << endl; getchar();
+										system("cls");
+										
+										case 2:
+										cout << "You decide to go home, hoping that the princess isn't raped or anything else that's nasty." << endl; getchar();
+										system("cls");
+										goto Start;
 									}
+
+									
 								}
+								
 							}
 						}
+					
+					case 2:
+					cout << "You run away into the forest, like the weak ass bitch you are. You lose 1 bravery." << endl; getchar();
+					bravery -= 1;
+					system("cls");
 					}
 					system("cls");
 					goto Start;
@@ -185,15 +203,18 @@ Start:
 			cout << "You feel regret not getting up in the morning and helping that screaming lady," << endl;
 			cout << "that might get the princess to notice you." << endl; getchar();
 			cowardice += 1;
-			cout << "Your cowarice rose to: " << cowardice << endl; getchar();
+			cout << "Your cowardice rose to: " << cowardice << endl; getchar();
 			cout << "You fall asleep, praying that you get another chance to prove yourself tommorow." << endl; getchar();
 			system("cls");
 			goto Start;
 			break; // Breakar case 2 vid det forsta valet.
 		case 3: // Ifall man tryckte 3
-			if (strength < 5)
+			if (strength < 5){
 				cout << "You're so buff already, maybe you should go and help others instead of getting stronger?" << endl; getchar();
-			else (cout << "You go to the barracks and lift waight and practice swordfighting with a dummy."<< endl; getchar(); // Bara ett tillfalligt svar, borde lagga till nagot mer har.
+			}
+			else {
+				cout << "You go to the barracks and lift waight and practice swordfighting with a dummy."<< endl; getchar(); // Bara ett tillfalligt svar, borde lagga till nagot mer har.
+			}
 			strength += 1;
 			cout << "You feel stronger already! (Strength +1. Your strength is: " << strength << ")" << endl; getchar();
 			cout << "You get tired after your workout and go home." << endl; getchar();
@@ -212,6 +233,5 @@ Start:
 	} while (repeat); // Allt kors i en do/while loop, som gor att bool repeat=true funkar. Kanske (troligtvis) sa maste alla cases laggas i do/while loppar sa att repeat kommer att funka.
 
 
-	system("pause");
 	return 0; // Har nanting att gara med att man skriver int main i barjan, hajar inte riktigt :/
 }
