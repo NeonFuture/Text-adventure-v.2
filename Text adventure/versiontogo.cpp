@@ -1,5 +1,5 @@
 //So that Adam can edit while Leo is doing actual work on the actual file.
-#include "stdafx.h"
+
 #include <stdio.h>
 #include <iostream>
 #include <ctime>
@@ -77,7 +77,7 @@ Wrong1:
 
 		switch (input) // Laser av vad input har for varde och sen tar den och gor vad som star i caset som har samma siffra som du skrev.
 		{
-		case 1: // Ifall man skrev 1
+case 1: // Ifall man skrev 1
 			cout << "You got up, not really feeling like saving the day." << endl; // Typical betamornings #Onlybetathings
 			Wrong2:
 			cout << "1. Investigate through the window." << endl; // Dags for det andra valet. Borde andra formatting sa att valet liknar mer som det forsta.
@@ -127,10 +127,11 @@ Wrong1:
 				cout << "Savages: HAHAHAHAHA!" << endl; getchar(); // Savage af
 				cout << "Savage 3: Hey, Who's that?" << endl; getchar(); // Ohshit.png
 				cout << "You feel everyones eyes on you. Even the princess looks directly at you" << endl; getchar(); // Det har valet kommer hoja bravery eller cowardice rejalt.
-				Wrong4://Kranglar, krockar med Wrong2:
+
 				cout << "1. Go and save her" << endl; // Bravery okar rejalt.
 				cout << "2. Hide and cover in fear." << endl; // Cowardice okar rejalt.
 				cin >> input; // Kollar vad spelaren skrev.
+
 				switch (input) // Kollar vad input har for varde.
 				{
 				case 1: // Ifall man skrev 1
@@ -140,14 +141,16 @@ Wrong1:
 					cout << "When combat is initiated, a six-sided die will be thrown. If the number that the die lands on is equal to or bigger than your opponent's  strength divided by your strength";
 					cout << "your attack will be successful. You will then deal as much damage as you have strength. However, if you won't kill your target in one turn, the target will automatically ";
 					cout << "gain a free hit. How much damage they will do to you depend on their strength and your bravery. Their damage = their strength / your bravery. " << endl;
-					Wrong5:
+
 					cout << "1. fight like a real knight/man/beta/. " << endl;
 					cout << "2. Pussy out and run away in to the forest. " << endl;
 					cin >> input;
+					
 					switch (input)
 					{
 					case 1:
-						cout << "'You wish to fight. Let's see what you got, toilet destroyer!' one of the savages shout. " << endl; getchar();
+						
+						cout << "'You wish to fight. Let's see what you got, toilet destroyer!' one of the ruffies shout. " << endl; getchar();
 						while (savageHp > 0) {
 							srand(time(NULL));
 							die = rand() % 6 + 1;
@@ -156,10 +159,10 @@ Wrong1:
 							{
 								cout << "You charge forward against your enemy, without even thinking about getting your armor. (Smart move, champ)" << endl; getchar();
 								cout << "Unfortunately, you fail miserably and trip and fall into a pool of mud, noob. (Also meaning that the savage get to attack you now. " << endl; getchar();
-								cout << "The savage hit you hard with a kick to the balls. Your brother screams as you lose consciousness. " << savageStrength / bravery << " hp" << endl; getchar();
-								playerHp = playerHp - savageStrength / bravery;
+								cout << "The savage hit you hard with a kick to the balls. Your brother screams as you lose consciousness. You loose " << savageStrength/bravery << " hp" << endl; getchar();
+								playerHp = playerHp-savageStrength/bravery;
 								if (playerHp < 0) {
-									cout << "Your health has dropped dangerously low! Your brother carries you away to recover before the savages makes an example of you." << endl; getchar();
+									cout << "Your health has dropped dangerously low! Your brother carries you away to recover before the ruffies makes an example of you." << endl; getchar();
 									goto Start;
 								}
 							}
@@ -186,34 +189,32 @@ Wrong1:
 									cin >> input;
 									switch (input)
 									{
-									case 1:
+										case 1:
 										cout << "You follow the ruffies, lol" << endl; getchar();
+										goto Boss;
 										system("cls");
-
-									case 2:
+										
+										case 2:
 										cout << "You decide to go home, hoping that the princess isn't raped or anything else that's nasty." << endl; getchar();
 										system("cls");
 										goto Start;
 									}
 
-
+									
 								}
-
+								
 							}
-						}
-
+						
+					
 					case 2:
-						cout << "You run away into the forest, like the weak ass bitch you are. You lose 1 bravery." << endl; getchar();
-						bravery -= 1;
-						system("cls");
-					default:
-						cout << "Answer with the choices given." << endl; getchar();
-						goto Wrong5;
-						break;
+					cout << "You run away into the forest, like the weak ass bitch you are. You lose 1 bravery." << endl; getchar();
+					bravery -= 1;
+					system("cls");
 					}
 					system("cls");
 					goto Start;
 					break; // Breakar caset dar man gar ut och raddar eller inte.
+				} 
 				}
 			default:
 				cout << "Answer with the choices given." << endl; getchar();
@@ -260,6 +261,200 @@ Wrong1:
 			} 
 
 	}
+	
+	Boss:
+	cout << "You pursue the ruffies and the grill into the forest, out in the fields, and up the mountains to get to Lobsterboy Alpha's castle." << endl; getchar();
+	cout << "You see the ruffies and the grill enter the castle, unfortunately closing the big gates after them." << endl; getchar();
+	cout << "As you aproach the gates, you notice an old lady walking in a rapid pace towards you." << endl; getchar();
+	cout << "'Sir Beta Knight! It's dangerous to go alone, take this!' - The old lady shouts as she throws a giant sword towards you, head first." << endl; getchar(); 
+	cout << "You catch the sword gracefully and slash the locks on the gates with it, looking truly badass." << endl; getchar();
+	cout << "Well inside, a few guards notice you and start making ape noises while flexing their muscles." << endl; getchar();
+	cout << "'OUH OUH, WE GOT OURSELFS SUM BETA FLESH BOIIIIIIIIS!!!!1' - One of the foul guards roars." << endl; getchar();
+	cout << "Prepare for battle!" << endl; getchar() ;
+	cout << "These are your stats: " << endl << "Bravery: " << bravery << "	" << "Strength: " << strength << "	" << "Cowardice: " << cowardice << "	" << "Your HP: " << playerHp << endl << endl; getchar();
+	int apeHp,apeDamage,apeStrength;
+	apeHp = 15,
+	apeDamage = 4,
+	apeStrength = 10;
+	cout << "These are your enemies stats: " << endl << "Enemy Damage: " << apeDamage << "	" << "Enemy Strength: " << apeStrength << "	"<< "Enemy HP: " << apeHp << endl << endl; getchar();
+	
+	while (apeHp > 0){
+		
+		cout << "1. Fast attack - Higher chance of hitting with your sword, but less damage." << endl; getchar();
+		cout << "2. Heavy attack - Lower chance of hitting with your sword, but higher damage." << endl; getchar();
+		cout << "3. Pussy out and return home." << endl;
+		
+		cin >> (input);
+		switch(input)
+		{
+			case 1:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die +1 >= apeStrength/strength)
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout <<"... And hit your foes with a fast blow!" << endl; getchar();
+				cout << "You deal: " << strength -1 << " points of damage!" << endl; getchar();
+				apeHp -= strength -1;
+				cout << "Your foe now has: " << apeHp << " hp!" << endl; getchar();
+				if (apeHp <= 0) 
+				{
+					cout << "You slayed the ridonkilus guards. Woho! Your hp has been set to 20 for the actual bossfight, the castle wizard yells." << endl; getchar();
+				}
+			}
+			
+			
+			else
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout << "... And due to your fast speed, you trip on a bucket of intestines. The alpha guards strike you with great power!" << endl; getchar();
+				playerHp -= apeStrength - bravery;
+				cout << "You lost: " << apeStrength - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			break;
+			case 2:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die -1 >= apeStrength/strength)
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "... And you strike your enemies with  a mighty swing!" << endl; getchar();
+				apeHp -= strength + 1;
+				cout << "Your foe now has: " << apeHp << " hp!" << endl; getchar();
+				if (apeHp <= 0) {
+					cout << "Congratulations! You slayed the nasty guards that the brogrammer coded in. Hp has been set to 20 for the bossfight, the castle wizard yells.." << endl; getchar();
+					goto actualBoss;
+				}
+				break;
+				
+			}
+			else 
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "And you hit your toe on a table foot that stuck out, and you feel hurt. Also the alpha guards hit you." << endl; getchar();
+				playerHp -= apeStrength + 1 - bravery;
+				cout << "You lost: " << apeStrength - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			case 3:
+			cout << "You pussy out and go home. " << endl; getchar();
+			system("cls");
+			goto Start;
+		}
+	}
+	
+	
+	actualBoss:
+	playerHp = 20;
+	cout << "You now go to meet Lobsterboy and save the princess. " << endl; getchar();
+	cout << "'This princess will be mine, forever! And ther is nothing you can do to stop me, MUAHAHAHAH!' - Lobsterboy shrieks. " << endl; getchar();
+	cout << "'Not on my watch... 8-) " << endl; getchar();
+	int lobsterHp, lobsterDamage, lobsterStrength;
+	lobsterHp = 40, lobsterDamage = 3, lobsterStrength = 5;
+	cout << "These are your stats: " << endl << "Bravery: " << bravery << "	" << "Strength: " << strength << "	" << "Cowardice: " << cowardice << "	" << "Your HP: " << playerHp << endl << endl; getchar();
+	cout << "These are your enemies stats: " << endl << "Enemy Damage: " << apeDamage << "	" << "Enemy Strength: " << apeStrength << "	"<< "Enemy HP: " << apeHp << endl << endl; getchar();
+	
+	while (lobsterHp > 0){
+		
+		cout << "1. Fast attack - Higher chance of hitting with your sword, but less damage." << endl; getchar();
+		cout << "2. Heavy attack - Lower chance of hitting with your sword, but higher damage." << endl; getchar();
+		cout << "3. Pussy out and return home." << endl;
+		
+		cin >> (input);
+		switch(input)
+		{
+			case 1:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die +1 >= lobsterStrength/strength)
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout <<"... And hit your rival with a fast blow!" << endl; getchar();
+				cout << "You deal: " << strength -1 << " points of damage!" << endl; getchar();
+				lobsterHp -= strength -1;
+				cout << "Your foe now has: " << lobsterHp << " hp!" << endl; getchar();
+				if (lobsterHp <= 0)
+				{
+					goto End;
+				}
+			
+			}
+			
+			else
+			{
+				cout << "You rush forward fastly..." << endl; getchar();
+				cout << "... And due to your fast speed, you trip on a bucket of intestines. Lobsterboy strike you with great power!" << endl; getchar();
+				playerHp -= lobsterStrength - bravery;
+				cout << "You lost: " << lobsterDamage - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			break;
+		
+			case 2:
+			srand(time(NULL));
+			die = rand() % 6 + 1;
+			if (die -1 >= lobsterStrength/strength)
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "... And you strike your nemesis with  a mighty swing!" << endl; getchar();
+				lobsterHp -= strength + 1;
+				cout << "Your foe now has: " << lobsterHp << " hp!" << endl; getchar();
+				if (lobsterHp <= 0)
+				{
+					goto End;
+				}
+				
+								
+			}
+			else 
+			{
+				cout << "You run forward, slightly slower than usual..." << endl; getchar();
+				cout << "And you hit your toe on a table foot that stuck out, and you feel hurt. Also lobsterboy hits you." << endl; getchar();
+				playerHp -= lobsterStrength + 1 - bravery;
+				cout << "You lost: " << lobsterDamage - bravery << " hp!" << endl; getchar();
+				if (playerHp <= 0)
+				{
+					cout << "Your health is dangerously low! You will now be transported back to the town, loser." << endl; getchar();
+					system("cls");
+					goto Start;
+				}
+			}
+			break;
+			case 3:
+			cout << "You pussy out and go home. " << endl; getchar();
+			system("cls");
+			goto Start;
+	}
+	
+
+
+}
+
+
+	
+	 
+End:
+	cout << "Congratulations! You slayed the mighty Lobsterboy and saved the princess!" << endl; getchar();
+	cout << "The beautiful waifu has now fallen in love with you." << endl; getchar();
+	cout << "How?" << endl; getchar();
+	cout << "Beats me." << endl; getchar();
+	cout << endl << "Thank you for playing our game! / Leo, Buster, Daniel R, Adam L " << endl; getchar();
 
 
 	return 0; // Har nanting att gara med att man skriver int main i barjan, hajar inte riktigt :/
