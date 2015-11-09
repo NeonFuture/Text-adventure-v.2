@@ -265,8 +265,12 @@ Boss:
 				cout << "You deal: " << strength -1 << " points of damage!" << endl; getchar();
 				apeHp -= strength -1;
 				cout << "Your foe now has: " << apeHp << " hp!" << endl; getchar();
-				system("cls");
+				if (apeHp <= 0) 
+				{
+					cout << "You slayed the ridonkilus guards. Woho! Your hp has been set to 20 for the actual bossfight, the castle wizard yells." << endl; getchar();
+				}
 			}
+			
 			
 			else
 			{
@@ -281,6 +285,7 @@ Boss:
 					goto Start;
 				}
 			}
+			break;
 			case 2:
 			srand(time(NULL));
 			die = rand() % 6 + 1;
@@ -290,7 +295,11 @@ Boss:
 				cout << "... And you strike your enemies with  a mighty swing!" << endl; getchar();
 				apeHp -= strength + 1;
 				cout << "Your foe now has: " << apeHp << " hp!" << endl; getchar();
-				system("cls");
+				if (apeHp <= 0) {
+					cout << "Congratulations! You slayed the nasty guards that the brogrammer coded in. Hp has been set to 20 for the bossfight, the castle wizard yells.." << endl; getchar();
+					goto actualBoss;
+				}
+				break;
 				
 			}
 			else 
@@ -312,9 +321,10 @@ Boss:
 			goto Start;
 		}
 	}
-	goto actualBoss;
+	
 	
 actualBoss:
+	playerHp = 20;
 	cout << "You now go to meet Lobsterboy and save the princess. " << endl; getchar();
 	cout << "'This princess will be mine, forever! And ther is nothing you can do to stop me, MUAHAHAHAH!' - Lobsterboy shrieks. " << endl; getchar();
 	cout << "'Not on my watch... 8-) " << endl; getchar();
@@ -340,9 +350,13 @@ actualBoss:
 				cout << "You rush forward fastly..." << endl; getchar();
 				cout <<"... And hit your rival with a fast blow!" << endl; getchar();
 				cout << "You deal: " << strength -1 << " points of damage!" << endl; getchar();
-				apeHp -= strength -1;
+				lobsterHp -= strength -1;
 				cout << "Your foe now has: " << lobsterHp << " hp!" << endl; getchar();
-				system("cls");
+				if (lobsterHp <= 0)
+				{
+					goto End;
+				}
+			
 			}
 			
 			else
@@ -358,6 +372,8 @@ actualBoss:
 					goto Start;
 				}
 			}
+			break;
+		
 			case 2:
 			srand(time(NULL));
 			die = rand() % 6 + 1;
@@ -365,10 +381,14 @@ actualBoss:
 			{
 				cout << "You run forward, slightly slower than usual..." << endl; getchar();
 				cout << "... And you strike your nemesis with  a mighty swing!" << endl; getchar();
-				apeHp -= strength + 1;
+				lobsterHp -= strength + 1;
 				cout << "Your foe now has: " << lobsterHp << " hp!" << endl; getchar();
-				system("cls");
+				if (lobsterHp <= 0)
+				{
+					goto End;
+				}
 				
+								
 			}
 			else 
 			{
@@ -383,18 +403,26 @@ actualBoss:
 					goto Start;
 				}
 			}
+			break;
 			case 3:
 			cout << "You pussy out and go home. " << endl; getchar();
 			system("cls");
 			goto Start;
+	}
 	
-}
+
+
 }
 
-	
+
 	
 	} while (repeat); // Allt kors i en do/while loop, som gor att bool repeat=true funkar. Kanske (troligtvis) sa maste alla cases laggas i do/while loppar sa att repeat kommer att funka.
-
+End:
+	cout << "Congratulations! You slayed the mighty Lobsterboy and saved the princess!" << endl; getchar();
+	cout << "The beautiful waifu has now fallen in love with you." << endl; getchar();
+	cout << "How?" << endl; getchar();
+	cout << "Beats me." << endl; getchar();
+	cout << endl << "Thank you for playing our game! / Leo, Buster, Daniel R, Adam L " << endl; getchar();
 
 	return 0; // Har nanting att gara med att man skriver int main i barjan, hajar inte riktigt :/
 }
